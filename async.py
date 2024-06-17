@@ -30,5 +30,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    if NAME_DIR not in os.listdir():
+        os.mkdir(NAME_DIR)
+
     asyncio.run(main())
     print(f'Программа завершилась через: {time.time() - START_TIME:.2f}seconds')
