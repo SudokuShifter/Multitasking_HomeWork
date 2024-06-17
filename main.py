@@ -11,7 +11,7 @@ NAME_DIR = 'download_images'
 
 def download(some_url: str):
     response = requests.get(some_url).content
-    file_name = f'{NAME_DIR}/{some_url.split("/")[-1]}'
+    file_name = f'{NAME_DIR}/{some_url.split("/")[-1].replace("*", "")}'
     with open(file_name, 'wb') as f_img:
         f_img.write(response)
     print(f'Downloaded {some_url} in {time.time() - START_TIME:.2f}seconds')
